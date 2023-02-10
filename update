@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Aktualizacja oprogramowania na serwerze Ubuntu
+sudo apt-get update
+sudo apt-get upgrade -y
+
+# Włączenie automatycznej aktualizacji bezpieczeństwa
+sudo apt-get install unattended-upgrades -y
+sudo dpkg-reconfigure unattended-upgrades
