@@ -17,3 +17,6 @@ Unattended-Upgrade::Automatic-Reboot-WithUsers "false";
 EOF
 
 sudo dpkg-reconfigure unattended-upgrades
+
+# Usunięcie niepotrzebnych pakietów
+sudo apt-get autoremove -y
