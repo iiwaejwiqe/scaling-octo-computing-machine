@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Sprawdzanie uprawnień administratora
+if [ "$(id -u)" != "0" ]; then
+   echo "Ten skrypt musi być uruchamiany jako administrator." 1>&2
+   exit 1
+fi
+
 # Aktualizacja oprogramowania na serwerze Ubuntu
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -20,3 +26,5 @@ sudo dpkg-reconfigure unattended-upgrades
 
 # Usunięcie niepotrzebnych pakietów
 sudo apt-get autoremove -y
+
+echo "Aktualizacja zakończona pomyślnie."
