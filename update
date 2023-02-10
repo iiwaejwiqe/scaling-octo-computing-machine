@@ -4,6 +4,16 @@
 sudo apt-get update
 sudo apt-get upgrade -y
 
-# Włączenie automatycznej aktualizacji bezpieczeństwa
+# Instalacja pakietu unattended-upgrades
 sudo apt-get install unattended-upgrades -y
+
+# Konfiguracja unattended-upgrades
+sudo cat > /etc/apt/apt.conf.d/50unattended-upgrades <<EOF
+Unattended-Upgrade::Origins-Pattern {
+        "o=Ubuntu,a=focal-security";
+};
+Unattended-Upgrade::Automatic-Reboot "true";
+Unattended-Upgrade::Automatic-Reboot-WithUsers "false";
+EOF
+
 sudo dpkg-reconfigure unattended-upgrades
